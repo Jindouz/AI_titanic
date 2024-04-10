@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+   h1 {
+      color: #192a8a;
+      text-align: center;
+    }
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h1 style="font-weight: bold;">Predict Titanic Survival</h1>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form action="/result" method="post">
+    <div class="form-group">
+      <label for="Age">Age:</label>
+      <input type="number" class="form-control" id="Age" name="Age" min="1" max="120">
+    </div>
+    <div class="form-group">
+      <label for="Sex">Gender:</label>
+      <select class="form-control" id="Sex" name="Sex">
+        <option value="1">Female</option>
+        <option value="0">Male</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="Pclass">Class Quarters:</label>
+      <select class="form-control" id="Pclass" name="Pclass">
+        <option value="1">1st Class</option>
+        <option value="2">2nd Class</option>
+        <option value="3">3rd Class</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="Fare">Bought Ticket Price (1-550):</label>
+      <input type="number" class="form-control" id="Fare" name="Fare" min="1" max="550" value="10">
+    </div>
+    <div class="form-group">
+      <label for="sibsp">Number of Siblings on board:</label>
+      <input type="number" class="form-control" id="sibsp" name="sibsp" min="0" max="10" value="0">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}

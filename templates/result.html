@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+        h1 {
+      color: #336699;
+      text-align: center;
+      margin-top: 20px;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      border: 2px solid #336699;
+    }
+    td {
+      padding: 10px;
+    }
+    p {
+      max-width: 300px;
+      margin: 20px auto;
+      text-align: center;
+      background-color: #f9f9f9;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+<div class="container">
+  <h1>Prediction Result</h1>
+  <table class="table table-bordered">
+    <tr>
+      <td><h1 style="text-transform: uppercase; font-weight: bold;">{{ data }}</h1></td>
+    </tr>
+  </table>
+<a href="/" class="btn btn-primary">Return</a>
+</div>
+{% endblock %}

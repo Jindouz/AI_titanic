@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>{% block title %}{% endblock %} - My Webpage</title>
+    {% endblock %}
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 80vh; /* Use 100vh instead of 50vh for full viewport height */
+      }
+      .content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* Use media queries to adjust styles for different screen sizes */
+      @media (max-width: 768px) {
+        .navbar-nav {
+          flex-direction: column;
+          text-align: center;
+        }
+        .nav-item {
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Titanic Prediction</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-left"> <!-- Change ml-left to ml-auto to align items to the right -->
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/csv" style="color: azure; background-color: rgb(94, 199, 85);">CSV Data</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="content">
+      <div id="content" class="container text-center">{% block content %}{% endblock %}</div>
+    </div>
+    <div id="footer">
+      {% block footer %}
+      {% endblock %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  </body>
+</html>
