@@ -12,6 +12,10 @@ CSV_FILE = 'titanic.csv'
 def predict():
     return render_template('predict.html')
 
+@app.route('/tree')
+def tree():
+    return render_template('tree.html')
+
 
 @app.route('/result', methods=['POST'])
 def result():

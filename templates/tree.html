@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+CSV Data - My Webpage
+{% endblock %}
+
+{% block content %}
+<div class="container justify-content-center" style="height: 50vh;">
+  <h1 style="font-weight: bold; color: #1245a3;">Decision Tree Graph</h1>
+  <a href="{{ url_for('static', filename='titanic_rec.svg') }}">
+    <img src="{{ url_for('static', filename='titanic_rec.svg') }}" alt="Titanic Recommendation"
+         style="max-width: 100%; height: auto; cursor: pointer;">
+  </a>
+</div>
+{% endblock %}
